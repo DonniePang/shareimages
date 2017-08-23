@@ -1,0 +1,28 @@
+input[type="file"] {}
+
+
+/* 点赞以及评论区 */
+
+.likeCommentDiv {
+    margin: 10px 0;
+    font-size: 18px;
+}
+
+.likeSpan .like {
+    color: #ccc
+}
+
+.likeSpan .like:hover {
+    cursor: pointer;
+}
+
+.likeSpan .like,
+.likeSpan .likeNum {
+    margin-left: 10px;
+}
+.commentBtn{
+    cursor: pointer;
+}
+.commentBtn:hover{
+    color: #337ab7
+}

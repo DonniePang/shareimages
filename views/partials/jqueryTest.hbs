@@ -1,0 +1,18 @@
+{{!--测试handlebars中的helper方法模块--}}
+
+{{#section 'head'}}
+    <!-- we want Google to ignore this page -->
+	<meta name="robots" content="noindex">
+{{/section}}
+
+<h1>
+    content
+</h1>
+
+{{#section 'jquery'}}
+    <script>
+		$('document').ready(function(){
+			$('h1').html('jQuery Works');
+		});
+	</script>
+{{/section}}

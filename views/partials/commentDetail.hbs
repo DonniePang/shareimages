@@ -1,0 +1,26 @@
+<script id="commentTemplate" type="text/x-handlebars-template">
+    <div class="row">
+        <div class="col-lg-6">
+            <form method="post" enctype="application/x-www-form-urlencoded">
+                <div class="form-group">
+                    <label for="\{{imageId}}">文本:</label>
+                    <textarea class="form-control" name="\{{imageId}}" rows="4"></textarea>
+                </div>
+                <a class="btn btn-primary commentSubmit">评论</a>
+            </form>
+        </div>
+        <div class="col-lg-6">
+            \{{#each comments}}
+            \{{#if ../comments}}
+            <div class="commentContent clearfix">
+                <a href="" class="commentUserName">\{{from.name}}</a>
+                <p class="">\{{content}}</p>
+                <a href="" class="reply pull-right">回复</a>
+            </div>
+            \{{else}}
+            <p>暂时未有评论</p>
+            \{{/if}}
+            \{{/each}}
+        </div>
+    </div>
+</script>

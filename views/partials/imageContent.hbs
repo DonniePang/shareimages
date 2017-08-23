@@ -1,0 +1,16 @@
+<div class="row">
+
+    <div id="imageContent">
+        {{#each image}}
+        <div class="col-lg-12">
+            <h2>{{text}}</h2>
+            <img src="/data/images/{{imageName}}" data-imageId="{{_id}}" alt="picture" class="img-responsive">
+            <div class="likeCommentDiv"><span class="glyphicon glyphicon-user"></span><a href="/user/{{_author._id}}" class="picUserName">
+           {{_author.name}}</a><span class="likeSpan"><span class="glyphicon glyphicon-heart like"></span><span class="likeNum">{{like.length}}</span></span>
+           <span class="commentBtn pull-right"><span class="glyphicon glyphicon-chevron-down"></span>评论</span></div>
+           <div class="commentDetail hidden"></div>
+        </div>
+        {{/each}}
+    </div>
+    
+</div>

@@ -1,0 +1,100 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"> {{!--国内浏览器高速模式--}}
+    <meta name="renderer" content="webkit"> 
+    
+    {{!--测试handlebars中的helper方法--}}
+
+    <title>ShareImages</title>
+    <!-- Bootstrap -->
+    <link href="/vendor/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+
+    <div class="container">
+
+        <nav class="navbar navbar-default" role="navigation">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="/">ShareImages</a>
+                </div>
+                
+                    {{#if user}}
+
+                    <form class="navbar-form navbar-right">
+
+                        <button type="button" class="btn btn-info" data-toggle="modal" data-target="#sendImage">发布图片</button>
+
+                        <!-- Split button -->
+                        <div class="btn-group">
+                            <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                {{ user.name }} <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li><a href="/user/{{user._id}}">个人首页</a></li>
+                                <li><a href="#">设置</a></li>
+                                <li role="separator" class="divider"></li>
+                                <li><a href="/logout">登出</a></li>
+                            </ul>
+                        </div>
+                    </form>
+
+                    {{else}}
+                    <p class="navbar-form navbar-right">
+                        <button type="button" class="btn btn-default" data-toggle="modal" data-target="#signup">注册</button>
+                        <button type="button" class="btn btn-default" data-toggle="modal" data-target="#signin">登陆</button>
+                    </p>
+                    {{/if}}
+
+            </div>
+        </nav>
+        {{!--发布图片--}} {{!--sendImage--}} {{> sendImage }} {{!--登陆&注册--}}
+        <!-- signupModal -->
+        {{> signup }}
+        <!-- signinModal -->
+        {{> signin }} {{#if success}}
+        <div class="alert alert-success alert-dismissable">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">
+                &times;
+            </button> {{ success }}
+        </div>
+        {{/if}} {{#if error}}
+        <div class="alert alert-danger alert-dismissable">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">
+                &times;
+            </button> {{ error }}
+        </div>
+
+        {{/if}} {{{body}}}
+    </div>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="/vendor/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+
+    <script src="https://cdn.bootcss.com/handlebars.js/4.0.10/handlebars.min.js"></script>
+
+    {{> commentDetail}}
+
+    {{!-- 业务逻辑 --}}
+    <script src="/js/main.js"></script>
+
+    {{!--测试handlebars中的helper方法--}}
+
+</body>
+
+</html>

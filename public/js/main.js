@@ -47,6 +47,8 @@
         if (target.classList.contains('commentSubmit')) {
             var form = new FormData(target.parentNode);
             var imageId = target.parentNode.getElementsByTagName('textarea')[0].getAttribute('name');
+            // var testForm = form.get(imageId); //test
+            // form.append('test', 'testtext')
             postComment(form, imageId, function (data) {
                 console.log(data)
             })
@@ -95,7 +97,7 @@
         var xhr = new XMLHttpRequest();
         var url = '/images/' + imageId + '/comment'
         xhr.open('POST', url);
-        xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+        // xhr.setRequestHeader('Content-Type', 'multipart/form-data'); //不要设置header？
         xhr.onreadystatechange = function () {
             if (xhr.readyState === 4) {
                 if (xhr.status === 200) {

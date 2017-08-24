@@ -2,6 +2,7 @@ var UserModel = require('../models/user');
 var ImageModel = require('../models/image');
 var CommentModel = require('../models/commet');
 var uploadForm = require('../utils/uploadForm').uploadForm;
+var otherForm = require('../utils/otherForm').otherForm;
 var checkLogin = require('../utils/checkLogin').checkLogin;
 
 function routes(router) {
@@ -66,17 +67,16 @@ function routes(router) {
     })
 
     //POST /images/:imageId/comment 为图片评论
-    router.post('/images/:imageId/comment', checkLogin, function (req, res) {
+    router.post('/images/:imageId/comment', checkLogin, otherForm, function (req, res) {
         var imageId = req.params.imageId;
-        // console.log(req)
-        console.log(req.body)
+
         var comment = {
             _imageId: imageId,
             from: req.session.user._id,
-            content: req.body[imageId]
+            content: req.fields[imageId]
         }
-        // CommentModel.create(comment)
-        console.log(comment)
+        CommentModel.create(comment)
+
         res.json(comment)
     })
 

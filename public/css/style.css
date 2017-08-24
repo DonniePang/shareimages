@@ -4,7 +4,7 @@ input[type="file"] {}
 /* 点赞以及评论区 */
 
 .likeCommentDiv {
-    margin: 10px 0;
+    margin: 20px 0;
     font-size: 18px;
 }
 
